@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
-import axios from 'axios';
+//import axios from 'axios';
 import './CreateCharacter.css'
 
 class CreateCharacter extends Component {
@@ -36,7 +36,7 @@ class CreateCharacter extends Component {
     }
 
     nextBtn = () => {
-        console.log('go to next page')
+        this.props.history.push('/board');
     }
 
     render() {
