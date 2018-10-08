@@ -1,0 +1,9 @@
+div {
+    background-color: azure;
+}
+
+div .playerImg{
+    float: left;
+    height:75px;
+    width:75px;
+}
