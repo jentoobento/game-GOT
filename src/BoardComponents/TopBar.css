@@ -1,8 +1,8 @@
-div {
+div .boardTopBar{
     background-color: azure;
 }
 
-div .playerImg{
+div .boardTopBar .playerImg{
     float: left;
     height:75px;
     width:75px;
