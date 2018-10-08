@@ -36,7 +36,7 @@ class CreateCharacter extends Component {
     }
 
     nextBtn = () => {
-        console.log('go to next page')
+        this.props.history.push('/board');
     }
 
     render() {
