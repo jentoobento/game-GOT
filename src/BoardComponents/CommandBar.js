@@ -28,9 +28,9 @@ class CommandBar extends Component {
             <React.Fragment>
                 <div class="container col-md-3 command-area">
                     <h2>Commands</h2>
-                    <button onClick={this.gainRepBtn} class="btn btn">Gain Reputation <FontAwesomeIcon icon="envelope" /></button>
-                    <button onClick={this.aquireGoldBtn} class="btn btn">Aquire Gold <FontAwesomeIcon icon="envelope" /></button>
-                    <button onClick={this.hireMenBtn} class="btn btn">Hire Men <FontAwesomeIcon icon="envelope" /></button>
+                    <button onClick={this.gainRepBtn} class="btn btn">Gain Reputation <FontAwesomeIcon icon="star" /></button>
+                    <button onClick={this.aquireGoldBtn} class="btn btn">Aquire Gold <FontAwesomeIcon icon="coins" /></button>
+                    <button onClick={this.hireMenBtn} class="btn btn">Hire Men <FontAwesomeIcon icon="user-plus" /></button>
                 </div>
             </React.Fragment>
         )

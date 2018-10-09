@@ -12,3 +12,7 @@
     text-align: center;
     font-weight: bold;
 }
+
+button > svg {
+    color: brown;
+}
