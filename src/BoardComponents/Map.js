@@ -49,7 +49,9 @@ class Map extends React.Component {
         })
         return (
             <React.Fragment>
-                {cityList}
+                <div className="col-md-9 map-area">
+                    {cityList}
+                </div>
             </React.Fragment>
         )
     }

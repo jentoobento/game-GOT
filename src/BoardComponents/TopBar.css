@@ -1,9 +1,23 @@
-div .boardTopBar{
+.topbar-area {
     background-color: azure;
+    width: 100vw;
 }
 
-div .boardTopBar .playerImg{
+.resource {
     float: left;
-    height:75px;
-    width:75px;
+}
+
+.playerInfo {
+    display: block;
+}
+
+.playerImg{
+    float: left;
+    height: 75px;
+    width: 75px;
+    margin: 10px;
+}
+
+.seasonsImg {
+    transform: rotate(0deg) scale(.4);
 }

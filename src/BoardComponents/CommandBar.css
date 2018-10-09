@@ -1,0 +1,21 @@
+.btn {
+    display: block;
+    margin: 10px;
+}
+
+.command-area {
+    background-color: bisque;
+    height: 100vh;
+}
+
+.command-area > h2 {
+    color: rgb(110, 74, 36);
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #5339218b;
+}
+
+.svg-inline--fa {
+    color: brown;
+    margin-right: 10px;
+}
