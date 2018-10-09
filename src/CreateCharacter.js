@@ -25,8 +25,6 @@ class CreateCharacter extends Component {
         //         })
         //     })
         //     .catch(err => console.log(err));
-
-
     }
 
     onChange = e => {

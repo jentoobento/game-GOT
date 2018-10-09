@@ -15,4 +15,5 @@
 
 button > svg {
     color: brown;
+    margin-right: 5px;
 }
