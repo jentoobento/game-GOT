@@ -1,17 +1,20 @@
 import React from 'react';
 import './TopBar.css';
+import seasons from '../images/seasons.png';
 
 class TopBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            season: "Summer"
+        }
     }
     render() {
         return (
             <React.Fragment>
                 <div className="row topbar-area">
                     <div className="col-md-4">
-                        <img className="playerImg" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm0rv6I6q0f6Z5HhzNwgY-WqvqY_iPIOtLqZf13oeusl8uOJuUw"/>
+                        <img className="playerImg" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm0rv6I6q0f6Z5HhzNwgY-WqvqY_iPIOtLqZf13oeusl8uOJuUw" />
                         <h4><b>Daenerys Targaryen</b></h4>
                         <h4><i>House of Targaryen</i></h4>
                     </div>
@@ -25,6 +28,7 @@ class TopBar extends React.Component {
                         <div className="col-md-4">
                             <h3>reputation</h3>
                         </div>
+                        <img src={seasons} alt="" className="seasonsImg" />
                     </div>
                 </div>
             </React.Fragment>
