@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import TopBar from './BoardComponents/TopBar';
 import './Board.css';
 
+import TopBar from './BoardComponents/TopBar';
 import CommandBar from './BoardComponents/CommandBar';
+import Map from './BoardComponents/Map'
 
 class Board extends Component {
     constructor(props) {
@@ -14,15 +15,8 @@ class Board extends Component {
         return (
             <React.Fragment>
                 <TopBar />
-                <div className="row">
-                    <div className="col-md-3 command-bar">
-                        <h2>Commands</h2>
-                        <CommandBar />
-                    </div>
-                    <div className="col-md-9" style={{ "backgroundColor": "pink" }}>
-                        <h2>map</h2>
-                    </div>
-                </div>
+                <CommandBar />
+                <Map />
             </React.Fragment>
         )
     }
