@@ -1,0 +1,19 @@
+.btn {
+    display: block;
+    margin: 10px;
+}
+
+.command-area {
+    background-color: bisque;
+}
+
+.command-area > h2 {
+    color: brown;
+    text-align: center;
+    font-weight: bold;
+}
+
+button > svg {
+    color: brown;
+    margin-right: 5px;
+}
