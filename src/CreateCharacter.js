@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
-//import axios from 'axios';
 import './CreateCharacter.css'
+import  { connect } from "react-redux";
+import { addPlayer } from "./redux/actions/index";
 
-class CreateCharacter extends Component {
+window.addPlayer = addPlayer;
+
+const mapStateToProps = state => {
+    return { players: state.players}
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPlayer: player => dispatch(addPlayer(player))
+    }
+}
+class ConnectCreateCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            playerName: '',
-            playerHouse: ''
+            name: '',
+            house: ''
         }
-    }
-
-    componentDidMount() {
-        // https://api.got.show/api/characters/
-
-        // axios({
-        //     method: 'GET',
-        //     url: 'https://api.got.show/api/houses/'
-        // })
-        //     .then(allHouses => {
-        //         this.setState({
-        //             houses: allHouses.data.map(house => house.name)
-        //         })
-        //     })
-        //     .catch(err => console.log(err));
     }
 
     onChange = e => {
@@ -34,6 +31,8 @@ class CreateCharacter extends Component {
     }
 
     nextBtn = () => {
+        const data = this.state;
+        this.props.addPlayer(data);
         this.props.history.push('/board');
     }
 
@@ -47,25 +46,27 @@ class CreateCharacter extends Component {
                         <FormControl
                             className="text-box"
                             type="text"
-                            value={this.state.playerName}
+                            value={this.state.name}
                             placeholder="What do you wished to be called?"
-                            name="playerName"
+                            name="name"
                             onChange={this.onChange} />
                         <ControlLabel>House</ControlLabel>
                         <FormControl
                             className="text-box"
                             type="text"
-                            value={this.state.playerHouse}
+                            value={this.state.house}
                             placeholder="What is the name of your house?"
-                            name="playerHouse"
+                            name="house"
                             onChange={this.onChange} />
                     </FormGroup>
                 </form>
-                <p>You will be known as {this.state.playerName} of House {this.state.playerHouse}</p>
+                {(this.state.name && this.state.house) && <p>You will be known as {this.state.name} of House {this.state.house}</p>}
                 <button onClick={this.nextBtn}>Next</button>
             </React.Fragment>
         )
     }
 }
+
+const CreateCharacter = connect(mapStateToProps, mapDispatchToProps)(ConnectCreateCharacter)
 
 export default CreateCharacter;
