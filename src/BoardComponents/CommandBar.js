@@ -76,7 +76,7 @@ class CommandBar extends Component {
         }
     }
 
-    invadeBtn = () =>{
+    invadeBtn = () => {
         console.log('fight!!!!!!')
     }
 
