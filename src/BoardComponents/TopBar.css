@@ -1,23 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .topbar-area {
     background-color: azure;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    color: #656060;
 }
 
-.resource {
-    float: left;
-}
-
-.playerInfo {
-    display: block;
-}
-
-.playerImg{
-    float: left;
-    height: 75px;
-    width: 75px;
-    margin: 10px;
-}
-
-.seasonsImg {
-    transform: rotate(0deg) scale(.4);
-}
+    .playerImg{
+        height: 75px;
+        width: 75px;
+        margin: 10px;
+    }
+  
+    .flex-container {
+        display: flex;
+        justify-content: center; /* centers text*/
+    }
+    
+    .flex-item {
+        padding: 100px; /* space between each letter */
+        text-align: center;
+    }
+    
+    .seasonsImg {
+        transform: rotate(0deg); /* change number to rotate */
+    }
+    
+    
+    
