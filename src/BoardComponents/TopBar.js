@@ -1,7 +1,7 @@
 import React from 'react';
-import './TopBar.css';
-import seasons from '../images/seasons-80x80.png';
 import { connect } from "react-redux";
+import seasons from '../images/seasons-80x80.png';
+import './TopBar.css';
 
 const mapStateToProps = state => {
     return { players: state.players, resources: state.resources }
@@ -13,9 +13,9 @@ class ConnectTopBar extends React.Component {
         this.state = {
             gold: 0,
             men: 0,
-            rep: 0,
-            season: "Summer"
-            , player: {}
+            reputation: 0,
+            turn: 1, // each turn is 1 month
+            season: 'Summer'
         }
     }
 
@@ -24,7 +24,7 @@ class ConnectTopBar extends React.Component {
             player: this.props.players
             , gold: this.props.resources.gold
             , men: this.props.resources.men
-            , rep: this.props.resources.reputation
+            , reputation: this.props.resources.reputation
         })
     }
 
@@ -33,7 +33,7 @@ class ConnectTopBar extends React.Component {
             this.setState({
                 gold: nextProps.resources.gold
                 , men: nextProps.resources.men
-                , rep: nextProps.resources.reputation
+                , reputation: nextProps.resources.reputation
             })
         }
     }

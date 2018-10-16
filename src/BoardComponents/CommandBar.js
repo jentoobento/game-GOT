@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from "react-redux";
 import { updateResources } from "../redux/actions/index"
-
 import './CommandBar.css';
 
 window.updateResources = updateResources;
@@ -17,14 +16,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-// DEFAULT VALUES (change as needed!)
-
-// const DEFAULT_GOLD = 500;
-// const DEFAULT_MEN = 50;
-// const DEFAULT_REP = 0;
-
 // COMMAND VARIABLES (change as needed)
-
 const GOLD_NEEDED_TO_HIRE_MEN = 200;
 const GOLD_GAINED_FROM_BTN_CLICK = 50;
 const GOLD_GAINED_EACH_TURN = 25;
@@ -32,14 +24,13 @@ const MEN_GAINED_FROM_BTN_CLICK = 10;
 const MEN_DIED_FROM_WINTER = 3;
 const REP_GAINED_FROM_BTN_CLICK = 5;
 
-
 class ConnectCommandBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gold: this.props.resources.gold,
-            men: this.props.resources.men,
-            reputation: this.props.resources.reputation,
+            gold: 0,
+            men: 0,
+            reputation: 0,
             turn: 1, // each turn is 1 month
             season: 'Summer'
         }
@@ -56,7 +47,6 @@ class ConnectCommandBar extends Component {
         this.endTurn();
     }
 
-
     /**
      * Gold increases every turn/month even if you do nothing. But using the 'Aquire Gold' command gives you
      * more gold than just waiting for it at the end of your turn/month.
@@ -69,7 +59,6 @@ class ConnectCommandBar extends Component {
         })
         this.endTurn();
     }
-
 
     /**
      * Hiring men requires gold. If you have no gold, you cannot hire men. Men will decrease when invading, 
@@ -114,20 +103,12 @@ class ConnectCommandBar extends Component {
             }
         }, () => {
             const data = {
-                gold:this.state.gold
+                gold: this.state.gold
                 , men: this.state.men
                 , reputation: this.state.reputation
             };
-            //debugger;
             this.props.updateResources(data);
         });
-        // const data = {
-        //     gold:this.state.gold
-        //     , men: this.state.men
-        //     , reputation: this.state.reputation
-        // };
-        // debugger;
-        // this.props.updateResources(data);
     }
 
     determineSeason(season) {
@@ -144,7 +125,6 @@ class ConnectCommandBar extends Component {
             return 'Spring';
         }
     }
-
 
     render() {
         return (
