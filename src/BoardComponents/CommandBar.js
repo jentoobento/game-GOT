@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from "react-redux";
+import { updateResources } from "../redux/actions/index"
 
 import './CommandBar.css';
 
+window.updateResources = updateResources;
+
+const mapStateToProps = state => {
+    return { resources: state.resources }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateResources: resource => dispatch(updateResources(resource))
+    }
+}
 
 // DEFAULT VALUES (change as needed!)
 
-const DEFAULT_GOLD = 500;
-const DEFAULT_MEN = 50;
-const DEFAULT_REP = 0;
+// const DEFAULT_GOLD = 500;
+// const DEFAULT_MEN = 50;
+// const DEFAULT_REP = 0;
 
 // COMMAND VARIABLES (change as needed)
 
@@ -20,13 +33,13 @@ const MEN_DIED_FROM_WINTER = 3;
 const REP_GAINED_FROM_BTN_CLICK = 5;
 
 
-class CommandBar extends Component {
+class ConnectCommandBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gold: DEFAULT_GOLD,
-            men: DEFAULT_MEN,
-            rep: DEFAULT_REP,
+            gold: this.props.resources.gold,
+            men: this.props.resources.men,
+            reputation: this.props.resources.reputation,
             turn: 1, // each turn is 1 month
             season: 'Summer'
         }
@@ -38,7 +51,7 @@ class CommandBar extends Component {
 
     gainRepBtn = () => {
         this.setState({
-            rep: this.state.rep + REP_GAINED_FROM_BTN_CLICK
+            reputation: this.state.reputation + REP_GAINED_FROM_BTN_CLICK
         })
         this.endTurn();
     }
@@ -52,7 +65,7 @@ class CommandBar extends Component {
 
     aquireGoldBtn = () => {
         this.setState({
-            gold: Math.ceil(this.state.gold + (this.state.rep * .5) + GOLD_GAINED_FROM_BTN_CLICK)
+            gold: Math.ceil(this.state.gold + (this.state.reputation * .5) + GOLD_GAINED_FROM_BTN_CLICK)
         })
         this.endTurn();
     }
@@ -68,7 +81,7 @@ class CommandBar extends Component {
         if (this.state.gold >= GOLD_NEEDED_TO_HIRE_MEN) {
             this.setState({
                 gold: this.state.gold - GOLD_NEEDED_TO_HIRE_MEN,
-                men: this.state.men + (this.state.rep / 5) + MEN_GAINED_FROM_BTN_CLICK
+                men: this.state.men + (this.state.reputation / 5) + MEN_GAINED_FROM_BTN_CLICK
             });
             this.endTurn();
         } else {
@@ -99,7 +112,22 @@ class CommandBar extends Component {
                 turn: this.state.turn + 1,
                 season: prevState.turn % 3 === 0 ? this.determineSeason(this.state.season) : this.state.season
             }
-        })
+        }, () => {
+            const data = {
+                gold:this.state.gold
+                , men: this.state.men
+                , reputation: this.state.reputation
+            };
+            //debugger;
+            this.props.updateResources(data);
+        });
+        // const data = {
+        //     gold:this.state.gold
+        //     , men: this.state.men
+        //     , reputation: this.state.reputation
+        // };
+        // debugger;
+        // this.props.updateResources(data);
     }
 
     determineSeason(season) {
@@ -132,5 +160,7 @@ class CommandBar extends Component {
         )
     }
 }
+
+const CommandBar = connect(mapStateToProps, mapDispatchToProps)(ConnectCommandBar)
 
 export default CommandBar;
