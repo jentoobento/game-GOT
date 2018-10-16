@@ -1,10 +1,10 @@
 import React from 'react';
 import './TopBar.css';
 import seasons from '../images/seasons-80x80.png';
-import  { connect } from "react-redux";
+import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-    return { players: state.players }
+    return { players: state.players, resources: state.resources }
 }
 
 class ConnectTopBar extends React.Component {
@@ -22,7 +22,20 @@ class ConnectTopBar extends React.Component {
     componentDidMount() {
         this.setState({
             player: this.props.players
+            , gold: this.props.resources.gold
+            , men: this.props.resources.men
+            , rep: this.props.resources.reputation
         })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.resources !== this.props.resources) {
+            this.setState({
+                gold: nextProps.resources.gold
+                , men: nextProps.resources.men
+                , rep: nextProps.resources.reputation
+            })
+        }
     }
 
     render() {
