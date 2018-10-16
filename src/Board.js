@@ -3,7 +3,8 @@ import './Board.css';
 
 import TopBar from './BoardComponents/TopBar';
 import CommandBar from './BoardComponents/CommandBar';
-import Map from './BoardComponents/Map'
+import Map from './BoardComponents/Map';
+import Footer from './BoardComponents/Footer';
 
 class Board extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Board extends Component {
                 <TopBar />
                 <CommandBar />
                 <Map />
+                <Footer/>
             </React.Fragment>
         )
     }
