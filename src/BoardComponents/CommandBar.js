@@ -46,7 +46,8 @@ class CommandBar extends Component {
     }
 
     /**
-    * Reputation slightly affects every command.
+    * Reputation slightly affects every command. If any other resource reaches 0,
+    * you automatically lose some amount of reputation.
     */
 
     gainRepBtn = () => {
@@ -116,17 +117,21 @@ class CommandBar extends Component {
      */
 
     endTurn(gold = GOLD_GAINED_EACH_TURN) {
+        
         this.setState(prevState => {
+            let men = prevState.resources.men;
             if (prevState.season === 'Winter') {
                 gold = GOLD_GAINED_EACH_TURN / 2;
+                men = prevState.resources.men >= MEN_DIED_FROM_WINTER ? prevState.resources.men - MEN_DIED_FROM_WINTER : 0;
             } else if (prevState.season === 'Spring') {
                 gold = GOLD_GAINED_EACH_TURN * 1.25;
             }
+
             return {
                 resources: {
                     ...prevState.resources,
                     gold: prevState.resources.gold + Math.ceil(gold),
-                    men: prevState.season === 'Winter' ? prevState.resources.men - MEN_DIED_FROM_WINTER : prevState.resources.men,
+                    men: men
                 },
                 turn: this.state.turn + 1,
                 season: prevState.turn % 3 === 0 ? this.determineSeason(this.state.season) : this.state.season

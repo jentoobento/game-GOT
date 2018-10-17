@@ -18,7 +18,7 @@ class ConnectTopBar extends React.Component {
                 , reputation: this.props.resources.reputation
             },
             player: this.props.players,
-            turn: this.props.turn,
+            turn: this.props.turn, // each turn = 1 month & 30 deg turning of season
             season: this.props.season
         }
     }
@@ -41,17 +41,21 @@ class ConnectTopBar extends React.Component {
         }
     }
 
+    textStyle = () =>{
+        return this.state.season === "Winter" ? {"color": "#2c79bf"} : {"color":"#656060"};
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div className="topbar-area container">
                     <div className="playerInfo">
                         <img className="playerImg" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm0rv6I6q0f6Z5HhzNwgY-WqvqY_iPIOtLqZf13oeusl8uOJuUw" />
-                        <img src={seasons} alt="" className="seasonsImg" />
+                        <img src={seasons} alt="" className="seasonsImg" style={{ 'transform': 'rotate(' + (this.state.turn * 30 + 20) + 'deg)' }} />&larr; Current Season
                         <h4><b>{this.state.player.name ? this.state.player.name : "Unknown"}</b></h4>
                         <h4><i>House of {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
                     </div>
-                    <div className="flex-container">
+                    <div className="flex-container" style={this.textStyle()}>
                         <div className="row">
                             <span className="flex-item">
                                 <h3>{this.state.resources.gold} gold</h3>
@@ -65,6 +69,11 @@ class ConnectTopBar extends React.Component {
                         <div className="row">
                             <span className="flex-item">
                                 <h3>{this.state.resources.reputation} reputation</h3>
+                            </span>
+                        </div>
+                        <div className="row">
+                            <span className="flex-item">
+                                <h3>Year {Math.floor(this.state.turn / 12)}</h3>
                             </span>
                         </div>
                     </div>
