@@ -1,39 +1,42 @@
 import React from 'react';
-import './TopBar.css';
-import seasons from '../images/seasons-80x80.png';
+import seasons from '../images/seasons-arrows.png';
 import { connect } from "react-redux";
 
+import './TopBar.css';
+
 const mapStateToProps = state => {
-    return { players: state.players, resources: state.resources }
+    return { players: state.players, resources: state.resources, turn: state.turn, season: state.season }
 }
 
 class ConnectTopBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gold: 0,
-            men: 0,
-            rep: 0,
-            season: "Summer"
-            , player: {}
+            resources: {
+                gold: this.props.resources.gold
+                , men: this.props.resources.men
+                , reputation: this.props.resources.reputation
+            },
+            player: this.props.players,
+            turn: this.props.turn,
+            season: this.props.season
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            player: this.props.players
-            , gold: this.props.resources.gold
-            , men: this.props.resources.men
-            , rep: this.props.resources.reputation
-        })
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.resources !== this.props.resources) {
-            this.setState({
-                gold: nextProps.resources.gold
-                , men: nextProps.resources.men
-                , rep: nextProps.resources.reputation
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    resources: {
+                        ...prevState.resources,
+                        gold: nextProps.resources.gold
+                        , men: nextProps.resources.men
+                        , reputation: nextProps.resources.reputation
+                    },
+                    turn: nextProps.turn,
+                    season: nextProps.season
+                }
             })
         }
     }
@@ -51,17 +54,17 @@ class ConnectTopBar extends React.Component {
                     <div className="flex-container">
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.gold} gold</h3>
+                                <h3>{this.state.resources.gold} gold</h3>
                             </span>
                         </div>
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.men} men</h3>
+                                <h3>{this.state.resources.men} men</h3>
                             </span>
                         </div>
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.rep} reputation</h3>
+                                <h3>{this.state.resources.reputation} reputation</h3>
                             </span>
                         </div>
                     </div>
