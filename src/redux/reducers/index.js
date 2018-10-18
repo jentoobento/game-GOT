@@ -1,5 +1,7 @@
 const initialState = {
     players: {}
+    , turn: 1
+    , season: "Summer"
     , resources: {
         gold: 500
         , men: 50
@@ -12,7 +14,12 @@ const rootReducer = (state = initialState, action) => {
         case "ADD_PLAYER":
             return { ...state, players: action.payload };
         case "UPDATE_RESOURCES":
-            return { ...state, resources: action.payload };
+            return {
+                ...state,
+                resources: action.payload.resources,
+                turn: action.payload.turn,
+                season: action.payload.season
+            };
         default:
             return state;
     }

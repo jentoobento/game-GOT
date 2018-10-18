@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from "react-redux";
+// import the action from redux for use
 import { updateResources } from "../redux/actions/index"
 
 import './CommandBar.css';
 
+// makes the imported action available to the dispatch
 window.updateResources = updateResources;
 
-const mapStateToProps = state => {
-    return { resources: state.resources }
-}
-
+// passes function as props to component
 const mapDispatchToProps = dispatch => {
     return {
+        // call the action which calls the reducer
         updateResources: resource => dispatch(updateResources(resource))
     }
 }
 
-// COMMAND VARIABLES (change as needed)
+// reducer comes back to here, which passes redux state as a prop to the component
+const mapStateToProps = state => {
+    return { resources: state.resources, turn: state.turn, season: state.season }
+}
 
+
+// COMMAND VARIABLES (change as needed)
 const GOLD_NEEDED_TO_HIRE_MEN = 200;
 const GOLD_GAINED_FROM_BTN_CLICK = 50;
 const GOLD_GAINED_EACH_TURN = 25;
@@ -26,30 +31,37 @@ const MEN_GAINED_FROM_BTN_CLICK = 10;
 const MEN_DIED_FROM_WINTER = 3;
 const REP_GAINED_FROM_BTN_CLICK = 5;
 
-
-class ConnectCommandBar extends Component {
+class CommandBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gold: this.props.resources.gold,
-            men: this.props.resources.men,
-            reputation: this.props.resources.reputation,
-            turn: 1, // each turn is 1 month
-            season: 'Summer'
+            resources: {
+                gold: this.props.resources.gold,
+                men: this.props.resources.men,
+                reputation: this.props.resources.reputation
+            },
+            season: 'Summer',
+            turn: this.props.turn // each turn is 1 month
         }
     }
 
     /**
-    * Reputation slightly affects every command.
+    * Reputation slightly affects every command. If any other resource reaches 0,
+    * you automatically lose some amount of reputation.
     */
 
     gainRepBtn = () => {
-        this.setState({
-            reputation: this.state.reputation + REP_GAINED_FROM_BTN_CLICK
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                resources: {
+                    ...prevState.resources,
+                    reputation: this.state.resources.reputation + REP_GAINED_FROM_BTN_CLICK
+                }
+            }
         })
         this.endTurn();
     }
-
 
     /**
      * Gold increases every turn/month even if you do nothing. But using the 'Aquire Gold' command gives you
@@ -58,12 +70,17 @@ class ConnectCommandBar extends Component {
      */
 
     aquireGoldBtn = () => {
-        this.setState({
-            gold: Math.ceil(this.state.gold + (this.state.reputation * .5) + GOLD_GAINED_FROM_BTN_CLICK)
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                resources: {
+                    ...prevState.resources,
+                    gold: Math.ceil(this.state.resources.gold + (this.state.resources.reputation * .5) + GOLD_GAINED_FROM_BTN_CLICK)
+                }
+            }
         })
         this.endTurn();
     }
-
 
     /**
      * Hiring men requires gold. If you have no gold, you cannot hire men. Men will decrease when invading, 
@@ -72,10 +89,16 @@ class ConnectCommandBar extends Component {
      */
 
     hireMenBtn = () => {
-        if (this.state.gold >= GOLD_NEEDED_TO_HIRE_MEN) {
-            this.setState({
-                gold: this.state.gold - GOLD_NEEDED_TO_HIRE_MEN,
-                men: this.state.men + (this.state.reputation / 5) + MEN_GAINED_FROM_BTN_CLICK
+        if (this.state.resources.gold >= GOLD_NEEDED_TO_HIRE_MEN) {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    resources: {
+                        ...prevState.resources,
+                        gold: this.state.resources.gold - GOLD_NEEDED_TO_HIRE_MEN,
+                        men: this.state.resources.men + (this.state.resources.reputation / 5) + MEN_GAINED_FROM_BTN_CLICK
+                    }
+                }
             });
             this.endTurn();
         } else {
@@ -94,34 +117,36 @@ class ConnectCommandBar extends Component {
      */
 
     endTurn(gold = GOLD_GAINED_EACH_TURN) {
+        
         this.setState(prevState => {
+            let men = prevState.resources.men;
             if (prevState.season === 'Winter') {
                 gold = GOLD_GAINED_EACH_TURN / 2;
+                men = prevState.resources.men >= MEN_DIED_FROM_WINTER ? prevState.resources.men - MEN_DIED_FROM_WINTER : 0;
             } else if (prevState.season === 'Spring') {
                 gold = GOLD_GAINED_EACH_TURN * 1.25;
             }
+
             return {
-                gold: prevState.gold + Math.ceil(gold),
-                men: prevState.season === 'Winter' ? prevState.men - MEN_DIED_FROM_WINTER : prevState.men,
+                resources: {
+                    ...prevState.resources,
+                    gold: prevState.resources.gold + Math.ceil(gold),
+                    men: men
+                },
                 turn: this.state.turn + 1,
                 season: prevState.turn % 3 === 0 ? this.determineSeason(this.state.season) : this.state.season
             }
         }, () => {
-            const data = {
-                gold:this.state.gold
-                , men: this.state.men
-                , reputation: this.state.reputation
-            };
-            //debugger;
-            this.props.updateResources(data);
+            this.props.updateResources({
+                resources: {
+                    gold: this.state.resources.gold
+                    , men: this.state.resources.men
+                    , reputation: this.state.resources.reputation
+                }
+                , turn: this.state.turn
+                , season: this.state.season
+            });
         });
-        // const data = {
-        //     gold:this.state.gold
-        //     , men: this.state.men
-        //     , reputation: this.state.reputation
-        // };
-        // debugger;
-        // this.props.updateResources(data);
     }
 
     determineSeason(season) {
@@ -139,7 +164,6 @@ class ConnectCommandBar extends Component {
         }
     }
 
-
     render() {
         return (
             <React.Fragment>
@@ -155,6 +179,4 @@ class ConnectCommandBar extends Component {
     }
 }
 
-const CommandBar = connect(mapStateToProps, mapDispatchToProps)(ConnectCommandBar)
-
-export default CommandBar;
+export default connect(mapStateToProps, mapDispatchToProps)(CommandBar);

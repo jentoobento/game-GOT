@@ -1,41 +1,48 @@
 import React from 'react';
-import './TopBar.css';
-import seasons from '../images/seasons-80x80.png';
+import seasons from '../images/seasons-arrows.png';
 import { connect } from "react-redux";
 
+import './TopBar.css';
+
 const mapStateToProps = state => {
-    return { players: state.players, resources: state.resources }
+    return { players: state.players, resources: state.resources, turn: state.turn, season: state.season }
 }
 
 class ConnectTopBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gold: 0,
-            men: 0,
-            rep: 0,
-            season: "Summer"
-            , player: {}
+            resources: {
+                gold: this.props.resources.gold
+                , men: this.props.resources.men
+                , reputation: this.props.resources.reputation
+            },
+            player: this.props.players,
+            turn: this.props.turn, // each turn = 1 month & 30 deg turning of season
+            season: this.props.season
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            player: this.props.players
-            , gold: this.props.resources.gold
-            , men: this.props.resources.men
-            , rep: this.props.resources.reputation
-        })
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.resources !== this.props.resources) {
-            this.setState({
-                gold: nextProps.resources.gold
-                , men: nextProps.resources.men
-                , rep: nextProps.resources.reputation
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    resources: {
+                        ...prevState.resources,
+                        gold: nextProps.resources.gold
+                        , men: nextProps.resources.men
+                        , reputation: nextProps.resources.reputation
+                    },
+                    turn: nextProps.turn,
+                    season: nextProps.season
+                }
             })
         }
+    }
+
+    textStyle = () =>{
+        return this.state.season === "Winter" ? {"color": "#2c79bf"} : {"color":"#656060"};
     }
 
     render() {
@@ -44,24 +51,29 @@ class ConnectTopBar extends React.Component {
                 <div className="topbar-area container">
                     <div className="playerInfo">
                         <img className="playerImg" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm0rv6I6q0f6Z5HhzNwgY-WqvqY_iPIOtLqZf13oeusl8uOJuUw" />
-                        <img src={seasons} alt="" className="seasonsImg" />
+                        <img src={seasons} alt="" className="seasonsImg" style={{ 'transform': 'rotate(' + (this.state.turn * 30 + 20) + 'deg)' }} />&larr; Current Season
                         <h4><b>{this.state.player.name ? this.state.player.name : "Unknown"}</b></h4>
                         <h4><i>House of {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
                     </div>
-                    <div className="flex-container">
+                    <div className="flex-container" style={this.textStyle()}>
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.gold} gold</h3>
+                                <h3>{this.state.resources.gold} gold</h3>
                             </span>
                         </div>
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.men} men</h3>
+                                <h3>{this.state.resources.men} men</h3>
                             </span>
                         </div>
                         <div className="row">
                             <span className="flex-item">
-                                <h3>{this.state.rep} reputation</h3>
+                                <h3>{this.state.resources.reputation} reputation</h3>
+                            </span>
+                        </div>
+                        <div className="row">
+                            <span className="flex-item">
+                                <h3>Year {Math.floor(this.state.turn / 12)}</h3>
                             </span>
                         </div>
                     </div>

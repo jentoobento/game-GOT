@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
+
+import "./LandingPage.css"
 
 class LandingPage extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class LandingPage extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="container landing-page">
                 <h1>Welcome to the Game of Thrones!</h1>
                 {/* Story and rules */}
                 <p>
@@ -23,9 +24,9 @@ class LandingPage extends Component {
                     for the next month. You can invest for more gold, hire more men for your army, or attempt to
                     conquer an enemy's castle. Over time you may have access to more commands. Each month your
                     enemies will also take action so keep that in mind.
-            </p>
-                <button className="btn btn-default" onClick={this.nextBtn}>Next</button>
-            </React.Fragment>
+                </p>
+                <button id="landing-page-btn" onClick={this.nextBtn}>Next</button>
+            </div>
         )
     }
 }

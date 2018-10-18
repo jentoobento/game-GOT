@@ -3,18 +3,18 @@ import Modal from 'react-modal';
 import './Footer.css';
 
 const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
     }
-  };
+};
 
-class Footer extends React.Component{
-    constructor(props){
+class Footer extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             modalOpen: false
@@ -23,27 +23,27 @@ class Footer extends React.Component{
         this.closeModal = this.closeModal.bind(this);
     }
 
-    openModal(){
+    openModal() {
         this.setState({
             modalOpen: true
         });
     }
 
-    closeModal(){
+    closeModal() {
         this.setState({
             modalOpen: false
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <React.Fragment>
                 <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Example Modal" ariaHideApp={false}>
                     <h3>
                         How to Play
                     </h3>
                     <p>
-                    Your ultimate goal should be conquering the entire game of throne universe. You will start with a certain amount of gold, men, reputation, and land—manage your resource well and conquer!
+                        Your ultimate goal should be conquering the entire game of throne universe. You will start with a certain amount of gold, men, reputation, and land—manage your resource well and conquer!
                     </p>
                     <ul>
                         <li>Gold: invest in cities to increase income, expand army, make alliance, offer peace, recruiting unemployed characters, steal character from other houses.</li>
