@@ -17,12 +17,6 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-// DEFAULT VALUES (change as needed!)
-
-// const DEFAULT_GOLD = 500;
-// const DEFAULT_MEN = 50;
-// const DEFAULT_REP = 0;
-
 // COMMAND VARIABLES (change as needed)
 
 const GOLD_NEEDED_TO_HIRE_MEN = 200;

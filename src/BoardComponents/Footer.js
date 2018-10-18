@@ -2,8 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import './Footer.css';
 
-//Modal.setAppElement('#howToPlay')
-
 const customStyles = {
     content : {
       top                   : '50%',
@@ -26,7 +24,6 @@ class Footer extends React.Component{
     }
 
     openModal(){
-        console.log('open sesami')
         this.setState({
             modalOpen: true
         });
