@@ -9,7 +9,7 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faBullhorn, faBookmark, faChild, faFlag, faMale, faStar,  faUsers, faUserPlus, faUniversity, faCoins } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope, faKey, faBullhorn, faBookmark, faChild, faFlag, faMale, faStar, faUsers, faUserPlus, faUniversity, faCoins);
+library.add( faEnvelope, faKey, faBullhorn, faBookmark, faChild, faFlag, faMale, faStar, faUsers, faUserPlus, faUniversity, faCoins);
 
 class App extends Component {
   render() {
