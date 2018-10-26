@@ -50,10 +50,10 @@ class ConnectTopBar extends React.Component {
             <React.Fragment>
                 <div className="topbar-area container">
                     <div className="playerInfo">
-                        <img className="playerImg" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm0rv6I6q0f6Z5HhzNwgY-WqvqY_iPIOtLqZf13oeusl8uOJuUw" />
+                        <img className="playerImg" alt="" src={this.state.player.imageLink} />
                         <img src={seasons} alt="" className="seasonsImg" style={{ 'transform': 'rotate(' + (this.state.turn * 30 + 20) + 'deg)' }} />&larr; Current Season
                         <h4><b>{this.state.player.name ? this.state.player.name : "Unknown"}</b></h4>
-                        <h4><i>House of {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
+                        <h4><i>House {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
                     </div>
                     <div className="flex-container" style={this.textStyle()}>
                         <div className="row">
