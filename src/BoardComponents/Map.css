@@ -1,13 +1,17 @@
-table {
+.map-icon {
+    color: white;
+    position: absolute;
+    z-index:99999;
+    left:200px;
+    top:150px;
+    cursor:pointer;
+}
+
+.map-icon:hover{
+    transform: scale(1.5, 1.5);
+}
+
+#map {
+    display:block;
     width:100%;
-    height:500px;
-}
-
-table td{
-    border: 1px solid black;
-    text-align: center;
-}
-
-.map-area {
-    background-color: burlywood;
 }

@@ -16,9 +16,11 @@ class Board extends Component {
         return (
             <React.Fragment>
                 <TopBar />
-                <CommandBar />
-                <Map />
-                <Footer/>
+                <div style={{"width":"100%"}}>
+                    <CommandBar />
+                    <Map />
+                </div>
+                <Footer />
             </React.Fragment>
         )
     }

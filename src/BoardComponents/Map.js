@@ -1,56 +1,55 @@
 import React from 'react';
 import './Map.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Modal from 'react-modal'
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
 
 class Map extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cities: [
-                {
-                    name: "a",
-                    men: 1,
-                    gold: 1,
-                    house: "stark"
-                },
-                {
-                    name: "b",
-                    men: 1,
-                    gold: 1,
-                    house: "stark"
-                },
-                {
-                    name: "c",
-                    men: 1,
-                    gold: 1,
-                    house: "stark"
-                }
-            ]
+            cityModalOpen: false
         }
     }
 
     cityClick = event => {
-        console.log("city clicked", event.target.value)
+        this.setState({
+            cityModalOpen: true
+        })
+    }
+
+    closeModal = event => {
+        this.setState({
+            cityModalOpen:false
+        })
     }
 
     render() {
-        const cityList = this.state.cities.map(item => {
-            return (
-                <div key={item.name} className="col-md-4">
-                    <h3>{item.name}</h3>
-                    <ul>
-                        <li>house: {item.house}</li>
-                        <li>men: {item.men}</li>
-                        <li>gold: {item.gold}</li>
-                    </ul>
-                    <button onClick={this.cityClick} value={item.name}>More Info</button>
-                </div>
-            )
-
-        })
         return (
             <React.Fragment>
-                <div className="col-md-9 map-area">
-                    {cityList}
+                <Modal isOpen={this.state.cityModalOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="City Modal" ariaHideApp={false}>
+                    <h4>
+                        Winterfell
+                    </h4>
+                    <hr/>
+                    <ul>
+                        <li>gold: 100</li>
+                        <li>man: 100</li>
+                    </ul>
+                </Modal>
+                <div className="col-md-9">
+                    <FontAwesomeIcon className="map-icon" onClick={this.cityClick} icon="university"/>
+                    <img id="map" src="https://vignette.wikia.nocookie.net/gameofthrones/images/7/7e/The_known_world_HBO.jpg/revision/latest/scale-to-width-down/1000?cb=20130507121142" />
                 </div>
             </React.Fragment>
         )
