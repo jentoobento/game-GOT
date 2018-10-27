@@ -11,9 +11,13 @@
     color: #656060;
 }
 
+    h4 {
+        display: inline;
+    }
+
     .playerImg{
         height: 75px;
-        width: 75px;
+        width: 75px; 
         margin: 10px;
     }
   
@@ -27,9 +31,9 @@
         text-align: center;
     }
     
-    /* .seasonsImg {
-        transform: rotate(80deg);  
+    .seasonsImg {
+        height: 60px;
     }
-     */
+    
     
     
