@@ -1,8 +1,38 @@
 .landing-page {
-    text-align: center;
+    background-image: url('http://images6.fanpop.com/image/photos/39000000/The-Seven-Kingdoms-game-of-thrones-39088621-2048-1146.jpg')
+}
+
+#table-of-content {
+    text-align: left;
+    border: double 3px;
+    width: 15%;
+    padding: 10px;
+}
+
+#table-of-content > ul {
+    list-style-position: inside;
+}
+
+#table-of-content > ul > li {
+    cursor: pointer;
+}
+
+#table-of-content > ul > li:hover {
+    color: blue;
 }
 
 #landing-page-btn {
     display: inline-block;
     padding: 10px 20px;
+}
+
+#landing-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color:rgb(124, 21, 21);
+    color: white;
+    cursor: pointer;
+    text-align:center;
 }
