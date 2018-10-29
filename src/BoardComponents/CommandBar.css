@@ -5,15 +5,27 @@
 
 .command-area {
     background-color: bisque;
-    height: 100vh;
+    height: 85vh;
 }
 
-.command-area > h2 {
-    color: rgb(110, 74, 36);
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #5339218b;
-}
+    .command-area > h2 {
+        color: rgb(110, 74, 36);
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #5339218b;
+    }
+
+    .resource-area > h2 {
+        color: rgb(110, 74, 36);
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #5339218b;
+    }
+
+    /* .resource-area > icon {
+        padding-left: 100px;
+    } */
+
 
 .svg-inline--fa {
     color: brown;

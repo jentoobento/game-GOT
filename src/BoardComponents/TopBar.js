@@ -52,8 +52,9 @@ class ConnectTopBar extends React.Component {
                     <div className="playerInfo">
                         <img className="playerImg" alt="" src={this.state.player.imageLink} />
                         <img src={seasons} alt="" className="seasonsImg" style={{ 'transform': 'rotate(' + (this.state.turn * 30 + 20) + 'deg)' }} />&larr; Current Season
+                        <br />
                         <h4><b>{this.state.player.name ? this.state.player.name : "Unknown"}</b></h4>
-                        <h4><i>House {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
+                        <h4><i> House {this.state.player.house ? this.state.player.house : "Unknown"}</i></h4>
                     </div>
                     <div className="flex-container" style={this.textStyle()}>
                         <div className="row">
