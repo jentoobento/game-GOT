@@ -1,8 +1,40 @@
 .landing-page {
-    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.how-to-play-contnet {
+    text-align: left;
+}
+
+#table-of-content {
+    text-align: left;
+    border: double 3px;
+    width: 15%;
+    padding: 10px;
+}
+
+#table-of-content > ul {
+    list-style-position: inside;
+}
+
+#table-of-content > ul > li > a {
+    cursor: pointer;
 }
 
 #landing-page-btn {
     display: inline-block;
     padding: 10px 20px;
+}
+
+#landing-footer {
+    z-index: 3;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color:rgb(124, 21, 21);
+    color: white;
+    cursor: pointer;
+    text-align:center;
 }

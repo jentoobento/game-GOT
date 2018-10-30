@@ -71,6 +71,7 @@ class ConnectCreateCharacter extends Component {
   render() {
     return (
       <React.Fragment>
+        <img width="100%" height="700px" style={{"opacity":"0.3", "position":"fixed"}} src="https://images5.alphacoders.com/403/thumb-1920-403408.jpg"/>
         <form className="container create-character">
           <FormGroup controlId="formBasicText">
             <ButtonToolbar>
@@ -148,9 +149,9 @@ class ConnectCreateCharacter extends Component {
             </ButtonToolbar>
           </FormGroup>
         </form>
-        <button id="create-character-btn" onClick={this.nextBtn}>
-          Next
-        </button>
+        <footer id="create-character-btn" onClick={this.nextBtn}>
+          <b>Next</b>
+        </footer>
       </React.Fragment>
     );
   }
