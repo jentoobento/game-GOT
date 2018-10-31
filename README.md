@@ -14,7 +14,8 @@ The main area of the screen that holds the virtual "board." Each section of the 
 
 This area keeps track of important statistics for the user. It also holds the user's information that they inputed earlier. The statistics in this component will help the player make their choices in the Command component.
 
-=== 
+=========
+
 #Collaboration Guidelines 
 These are some guidelines  and standards to properly create a fork, work on, issue/generate pull requests and merging the pull request into the original repository. 
 
@@ -91,6 +92,7 @@ Before you submit your pull request, here are a few things to do to clean up you
 If any commits have been made to the upstream master branch, you should rebase your development branch so that merging it will be a simple fast-forward that won't require any conflict resolution work.
 
 ```shell
+
 # Fetch upstream master and merge with your repo's master branch
 git fetch upstream
 git checkout master
