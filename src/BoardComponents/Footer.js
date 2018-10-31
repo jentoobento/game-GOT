@@ -56,7 +56,7 @@ class Footer extends React.Component {
                     </p>
                     <button onClick={this.closeModal} className="btn btn-info">close</button>
                 </Modal>
-                <footer onClick={this.openModal}>
+                <footer id="board-footer" onClick={this.openModal}>
                     <center><b>How to Play</b></center>
                 </footer>
             </React.Fragment>
