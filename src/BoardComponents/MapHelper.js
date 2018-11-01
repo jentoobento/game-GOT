@@ -65,7 +65,15 @@ export const allNamedCharacters = {
     charm: 10,
     intelligence: 10,
     battle: 10
-  }
+  },
+  robert_baratheon: {
+    name: "Robert Baratheon",
+    alias: ["The Stag King"],
+    specialItems: {},
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
 };
 
 ///////////////////////////////////////////////////////////////
@@ -100,7 +108,7 @@ export const allCities = {
     name: "King's Landing",
     isConquered: false,
     isAllied: false,
-    adjacent: ["Tumbleton", "Rosby"],
+    adjacent: ["tumbleton", "rosby"],
     resources: {
       gold: 100,
       men: 50
