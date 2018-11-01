@@ -26,8 +26,10 @@ export const allNamedCharacters = {
     charm: 10,
     intelligence: 10,
     battle: 10
-  }
+  },
+
 };
+
 
 export const allCities = {
   winterfell: {
@@ -51,5 +53,29 @@ export const allCities = {
       allNamedCharacters.jon_snow,
       allNamedCharacters.arya_stark
     ]
-  }
+  },
+  kings_landing: {
+    name: "King's Landing",
+    isConquered: false,
+    isAllied: false,
+    adjacent: [
+      "Tumbleton",
+      "Rosby"
+    ],
+    resources: {
+      gold: 100,
+      men: 50
+    },
+    namedCharacters: [
+      allNamedCharacters.aerys_II,
+      allNamedCharacters.robert_baratheon,
+      allNamedCharacters.cersei_lannister,
+      allNamedCharacters.jaime_lannister,
+      allNamedCharacters.joffrey_baratheon,
+      allNamedCharacters.myrcella_baratheon,
+      allNamedCharacters.tommen_baratheon
+      
+    ]
+  },
+
 };
