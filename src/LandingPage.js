@@ -26,7 +26,7 @@ class LandingPage extends Component {
 
         return (
             <React.Fragment>
-                <img width="100%" height="700px" style={{"opacity":"0.3", "position":"fixed"}} src="http://images6.fanpop.com/image/photos/39000000/The-Seven-Kingdoms-game-of-thrones-39088621-2048-1146.jpg"/>
+                <img id="landing-background" src="http://images6.fanpop.com/image/photos/39000000/The-Seven-Kingdoms-game-of-thrones-39088621-2048-1146.jpg"/>
                 <div className="container landing-page">
                     <h1>Welcome to the Game of Thrones!</h1>
                     {/* Story and rules */}

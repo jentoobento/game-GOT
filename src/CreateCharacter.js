@@ -71,7 +71,7 @@ class ConnectCreateCharacter extends Component {
   render() {
     return (
       <React.Fragment>
-        <img width="100%" height="700px" style={{"opacity":"0.3", "position":"fixed"}} src="https://images5.alphacoders.com/403/thumb-1920-403408.jpg"/>
+        <img id="create-background" src="https://images5.alphacoders.com/403/thumb-1920-403408.jpg" />
         <form className="container create-character">
           <FormGroup controlId="formBasicText">
             <ButtonToolbar>
@@ -92,8 +92,7 @@ class ConnectCreateCharacter extends Component {
                   bsSize="small"
                   onClick={this.randomName}
                   id="btnRandName"
-                >
-                  Random
+                >Random
                 </Button>
               </div>
 
