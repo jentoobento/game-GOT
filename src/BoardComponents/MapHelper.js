@@ -1,7 +1,20 @@
+/////////////////////////////////////////////////////////////
+// make sure to add actual aliases if the character has any
+// object key is lowercase with underscrores for spaces
+
 export const allNamedCharacters = {
   jon_snow: {
     name: "Jon Snow",
     alias: ["Lord Snow", "Bastard of Winterfell", "Lord Crow", "White Wolf"],
+    specialItems: {
+      longclaw: {
+        name: "Longclaw",
+        owner: this.jon_snow,
+        description: "A Valyrian steel sword with a wolf's head pommel.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -16,6 +29,15 @@ export const allNamedCharacters = {
       "Blind Beth",
       "Mercy"
     ],
+    specialItems: {
+      needle: {
+        name: "Needle",
+        owner: this.arya_stark,
+        description: "A thin Valyrian steel sword suited for fencing.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -23,6 +45,15 @@ export const allNamedCharacters = {
   tyrion_lannister: {
     name: "Tyrion Lannister",
     alias: ["Imp"],
+    specialItems: {
+      hand_of_the_king: {
+        name: "Hand of the Queen",
+        owner: this.tyrion_lannister,
+        description: "A symbol marking the bearer as the chief advisor to the King.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -30,14 +61,17 @@ export const allNamedCharacters = {
   aerys_II: {
     name: "Aerys II",
     alias: [],
+    specialItems: {},
     charm: 10,
     intelligence: 10,
     battle: 10
-  },
-  
-
+  }
 };
 
+///////////////////////////////////////////////////////////////
+// if you add named Characters to a city be sure to add the
+// character to the above object as well
+// object key is lowercase with underscrores for spaces
 
 export const allCities = {
   winterfell: {
@@ -66,10 +100,7 @@ export const allCities = {
     name: "King's Landing",
     isConquered: false,
     isAllied: false,
-    adjacent: [
-      "Tumbleton",
-      "Rosby"
-    ],
+    adjacent: ["Tumbleton", "Rosby"],
     resources: {
       gold: 100,
       men: 50
@@ -82,8 +113,6 @@ export const allCities = {
       allNamedCharacters.joffrey_baratheon,
       allNamedCharacters.myrcella_baratheon,
       allNamedCharacters.tommen_baratheon
-      
     ]
-  },
-
+  }
 };
