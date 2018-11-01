@@ -27,6 +27,14 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
+  robert_baratheon: {
+    name: "Robert Baratheon",
+    alias: ["The Stag King"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+
 
 };
 
