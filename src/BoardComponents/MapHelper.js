@@ -27,6 +27,7 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
+  
   aerys_II: {
     name: "Aerys II",
     alias: [],
@@ -34,6 +35,12 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
+  
+  robert_baratheon: {
+    name: "Robert Baratheon",
+    alias: ["The Stag King"],
+  },
+
   
 
 };
