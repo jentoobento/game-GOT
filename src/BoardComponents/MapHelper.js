@@ -27,6 +27,14 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
+  aerys_II: {
+    name: "Aerys II",
+    alias: [],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+  
 
 };
 
