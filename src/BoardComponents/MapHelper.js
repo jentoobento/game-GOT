@@ -1,7 +1,20 @@
+/////////////////////////////////////////////////////////////
+// make sure to add actual aliases if the character has any
+// object key is lowercase with underscrores for spaces
+
 export const allNamedCharacters = {
   jon_snow: {
     name: "Jon Snow",
     alias: ["Lord Snow", "Bastard of Winterfell", "Lord Crow", "White Wolf"],
+    specialItems: {
+      longclaw: {
+        name: "Longclaw",
+        owner: this.jon_snow,
+        description: "A Valyrian steel sword with a wolf's head pommel.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -16,6 +29,15 @@ export const allNamedCharacters = {
       "Blind Beth",
       "Mercy"
     ],
+    specialItems: {
+      needle: {
+        name: "Needle",
+        owner: this.arya_stark,
+        description: "A thin Valyrian steel sword suited for fencing.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -23,22 +45,31 @@ export const allNamedCharacters = {
   tyrion_lannister: {
     name: "Tyrion Lannister",
     alias: ["Imp"],
+    specialItems: {
+      hand_of_the_king: {
+        name: "Hand of the Queen",
+        owner: this.tyrion_lannister,
+        description: "A symbol marking the bearer as the chief advisor to the King.",
+        value: 100,
+        battle: 10
+      }
+    },
     charm: 10,
     intelligence: 10,
     battle: 10
   },
-  
   aerys_II: {
     name: "Aerys II",
     alias: [],
+    specialItems: {},
     charm: 10,
     intelligence: 10,
     battle: 10
   },
-
   robert_baratheon: {
     name: "Robert Baratheon",
     alias: ["The Stag King"],
+    specialItems: {},
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -81,11 +112,13 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
-  
-  
 
 };
 
+///////////////////////////////////////////////////////////////
+// if you add named Characters to a city be sure to add the
+// character to the above object as well
+// object key is lowercase with underscrores for spaces
 
 export const allCities = {
   winterfell: {
@@ -115,8 +148,8 @@ export const allCities = {
     isConquered: false,
     isAllied: false,
     adjacent: [
-      "Tumbleton",
-      "Rosby"
+      "tumbleton", 
+      "rosby"
     ],
     resources: {
       gold: 100,
@@ -130,8 +163,6 @@ export const allCities = {
       allNamedCharacters.joffrey_baratheon,
       allNamedCharacters.myrcella_baratheon,
       allNamedCharacters.tommen_baratheon
-      
     ]
-  },
-
+  }
 };
