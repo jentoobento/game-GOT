@@ -5,7 +5,12 @@
 export const allNamedCharacters = {
   jon_snow: {
     name: "Jon Snow",
-    alias: ["Lord Snow", "Bastard of Winterfell", "Lord Crow", "White Wolf"],
+    alias: [
+      "Lord Snow", 
+      "Bastard of Winterfell", 
+      "Lord Crow", 
+      "White Wolf"
+    ],
     specialItems: {
       longclaw: {
         name: "Longclaw",
@@ -15,6 +20,10 @@ export const allNamedCharacters = {
         battle: 10
       }
     },
+    house: [
+      "Stark",
+      "the Night's Watch"
+    ],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -38,6 +47,7 @@ export const allNamedCharacters = {
         battle: 10
       }
     },
+    house: ["Stark"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -54,14 +64,16 @@ export const allNamedCharacters = {
         battle: 10
       }
     },
+    house: ["lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
   },
   aerys_II: {
     name: "Aerys II",
-    alias: [],
+    alias: ["Mad King", "King Scab"],
     specialItems: {},
+    house: ["Targaryen"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -70,6 +82,7 @@ export const allNamedCharacters = {
     name: "Robert Baratheon",
     alias: ["The Stag King"],
     specialItems: {},
+    house: ["Baratheon"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -77,6 +90,7 @@ export const allNamedCharacters = {
   cersei_lannister: {
     name: "Cersei Lannister",
     alias: ["Cersei", "Queen Cersei", "Queen of the Seven Kingdoms", "Queen of the Andals and the First Men"],
+    house: ["lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -84,6 +98,7 @@ export const allNamedCharacters = {
   jaime_lannister: {
     name: "Jaime Lannister",
     alias: ["The King Slayer", "The Young Lion"],
+    house: ["lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -92,6 +107,7 @@ export const allNamedCharacters = {
   joffrey_baratheon: {
     name: "Joffrey Baratheon,",
     alias: ["joffrey the Illborn", "The Young Usurper"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -100,6 +116,7 @@ export const allNamedCharacters = {
   myrcella_baratheon: {
     name: "Myrcella Baratheon",
     alias: ["Princess Myrcella Baratheon"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -108,13 +125,46 @@ export const allNamedCharacters = {
   tommen_baratheon: {
     name: "Tommen Baratheon",
     alias: ["The Boy King"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
   },
 
 };
+export const houses = {
 
+  stark:[
+    allNamedCharacters.arya_stark,
+    allNamedCharacters.jon_snow
+  ],
+  lannister: [
+    allNamedCharacters.cersei_lannister,
+    allNamedCharacters.jaime_lannister,
+    allNamedCharacters.tyrion_lannister,
+    allNamedCharacters.joffrey_baratheon,
+    allNamedCharacters.myrcella_baratheon,
+    allNamedCharacters.tommen_baratheon,
+  ],
+  targaryen:[
+    allNamedCharacters.aerys_II,
+    //allNamedCharacters.daenerys_targaryen,
+    //allNamedCharacters.viserys_targeryen
+  ],
+
+  baratheon:[
+    allNamedCharacters.robert_baratheon
+  ],
+  greyjoy:[],
+  martell: [],
+  tyrell: [],
+  arryn: [],
+  tully:[],
+
+
+
+
+};
 ///////////////////////////////////////////////////////////////
 // if you add named Characters to a city be sure to add the
 // character to the above object as well
