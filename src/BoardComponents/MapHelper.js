@@ -64,7 +64,7 @@ export const allNamedCharacters = {
         battle: 10
       }
     },
-    house: ["lannister"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -90,7 +90,7 @@ export const allNamedCharacters = {
   cersei_lannister: {
     name: "Cersei Lannister",
     alias: ["Cersei", "Queen Cersei", "Queen of the Seven Kingdoms", "Queen of the Andals and the First Men"],
-    house: ["lannister"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -98,7 +98,7 @@ export const allNamedCharacters = {
   jaime_lannister: {
     name: "Jaime Lannister",
     alias: ["The King Slayer", "The Young Lion"],
-    house: ["lannister"],
+    house: ["Lannister"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -132,7 +132,7 @@ export const allNamedCharacters = {
   },
 
 };
-export const houses = {
+export const allHouses = {
 
   stark:[
     allNamedCharacters.arya_stark,
