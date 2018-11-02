@@ -74,6 +74,45 @@ export const allNamedCharacters = {
     intelligence: 10,
     battle: 10
   },
+  cersei_lannister: {
+    name: "Cersei Lannister",
+    alias: ["Cersei", "Queen Cersei", "Queen of the Seven Kingdoms", "Queen of the Andals and the First Men"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+  jaime_lannister: {
+    name: "Jaime Lannister",
+    alias: ["The King Slayer", "The Young Lion"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+
+  joffrey_baratheon: {
+    name: "Joffrey Baratheon,",
+    alias: ["joffrey the Illborn", "The Young Usurper"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+
+  myrcella_baratheon: {
+    name: "Myrcella Baratheon",
+    alias: ["Princess Myrcella Baratheon"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+
+  tommen_baratheon: {
+    name: "Tommen Baratheon",
+    alias: ["The Boy King"],
+    charm: 10,
+    intelligence: 10,
+    battle: 10
+  },
+
 };
 
 ///////////////////////////////////////////////////////////////
@@ -108,7 +147,10 @@ export const allCities = {
     name: "King's Landing",
     isConquered: false,
     isAllied: false,
-    adjacent: ["tumbleton", "rosby"],
+    adjacent: [
+      "tumbleton", 
+      "rosby"
+    ],
     resources: {
       gold: 100,
       men: 50
