@@ -134,11 +134,17 @@ export const allNamedCharacters = {
 };
 export const allHouses = {
 
-  stark:[
+  stark:{
+    members:
+  [
     allNamedCharacters.arya_stark,
     allNamedCharacters.jon_snow
   ],
-  lannister: [
+    motto:"Winter is Coming.",
+},
+
+  lannister:{ 
+  members:[
     allNamedCharacters.cersei_lannister,
     allNamedCharacters.jaime_lannister,
     allNamedCharacters.tyrion_lannister,
@@ -146,22 +152,108 @@ export const allHouses = {
     allNamedCharacters.myrcella_baratheon,
     allNamedCharacters.tommen_baratheon,
   ],
-  targaryen:[
+  motto:"Hear Me Roar",
+},
+  targaryen:{
+  members:[
     allNamedCharacters.aerys_II,
     //allNamedCharacters.daenerys_targaryen,
     //allNamedCharacters.viserys_targeryen
   ],
+    motto:"Fire and Blood.",
+  },
 
-  baratheon:[
+  baratheon:{
+    members:[
     allNamedCharacters.robert_baratheon
   ],
-  greyjoy:[],
-  martell: [],
-  tyrell: [],
-  arryn: [],
-  tully:[],
-
-
+    motto:"Ours is the Fury.",
+},
+  greyjoy:{
+    members:[],
+    motto:"We Do Not Sow.",
+  },
+  martell: {
+    members: [],
+    motto: "Unbowed, Unbent, Unbroken.",
+  },
+  tyrell: {
+    members: [],
+    motto: "Growing Strong.",
+  },
+  arryn: {
+    members: [],
+    motto: "As High as Honor.",
+  },
+  tully: {
+    members: [],
+    motto: "Family, Duty, Honor.",
+  },
+  frey: {
+    members: [],
+    motto: "We Stand Together.",
+  },
+  hornwood: {
+    members: [],
+    motto: "Righteous in Wrath.",
+  },
+  bolton: {
+  members: [],
+    motto: "Our Blades are Sharp.",
+  },
+  karstark: {
+  members: [],
+    motto: "The Sun of Winter.",
+  },
+  velaryon: {
+  members: [],
+    motto: "The Old, The True, The Brave.",
+  },
+  Cerwyn: {
+  members: [],
+    motto: "Honed and Ready.",
+  },
+  follard: {
+  members: [],
+    motto: "None so Wise.",
+  },
+  buckwell: {
+  members: [],
+    motto: "Pride and Purpose.",
+  },
+  flint: {
+  members: [],
+    motto: "Ever Vigilant.",
+  },
+  penrose: {
+  members: [],
+    motto: "Set Down Our Deeds.",
+  },
+  mormont: {
+  members: [],
+    motto: "Here We Stand",
+  },
+  hightower: {
+  members: [],
+    motto: "We Light the Way.",
+  },
+  hightower: {
+    members: [],
+    motto: "We Light the Way.",
+  },
+  Tarly: {
+    members: [],
+    motto: "First in Battle.",
+  },
+  westerling: {
+    members: [],
+    motto: "Honour, not Honours.",
+  },
+  Dayne: {
+    members: [],
+    motto: "Sword to House Martell.",
+  },
+  
 
 
 };
