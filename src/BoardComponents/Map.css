@@ -2,8 +2,6 @@
     color: white;
     position: absolute;
     z-index:99999;
-    left:200px;
-    top:150px;
     cursor:pointer;
 }
 
@@ -15,3 +13,8 @@
     display:block;
     width:100%;
 }
+
+/* #winterfell{
+    left:200px;
+    top:150px;
+} */

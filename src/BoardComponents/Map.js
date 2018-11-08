@@ -1,9 +1,8 @@
 import React from "react";
-// import Modal from "react-modal";
-
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { changeCity } from "../redux/actions/index";
+import { allCities } from "./MapHelper";
 
 import "./Map.css";
 
@@ -17,17 +16,6 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = cityName => {
   return { cityName: cityName };
-};
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
 };
 
 class Map extends React.Component {
@@ -47,39 +35,25 @@ class Map extends React.Component {
     this.props.changeCity({
       cityName: city
     });
-
-    // this.setState({
-    //     cityModalOpen: true
-    // })
-  };
-
-  closeModal = event => {
-    this.setState({
-      cityModalOpen: false
-    });
   };
 
   render() {
-    return (
-      <React.Fragment>
-        {/* <Modal isOpen={this.state.cityModalOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="City Modal" ariaHideApp={false}>
-                    <h4>
-                        Winterfell
-                    </h4>
-                    <hr/>
-                    <ul>
-                        <li>gold: 100</li>
-                        <li>man: 100</li>
-                    </ul>
-                </Modal> */}
-        <div className="col-md-9" style={{ backgroundColor: "#101519" }}>
-          <span id="winterfell">
+    const cities = Object.keys(allCities).map(city => {
+      return(
+        <span id={allCities[city].id} key={allCities[city].id}>
             <FontAwesomeIcon
               className="map-icon"
+              style={allCities[city].location}
               onClick={this.cityClick}
               icon="university"
             />
           </span>
+      )
+    })
+    return (
+      <React.Fragment>
+        <div className="col-md-9" style={{ backgroundColor: "#101519" }}>
+          {cities}
           <img
             id="map"
             alt=""

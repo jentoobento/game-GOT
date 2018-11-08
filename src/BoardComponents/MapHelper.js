@@ -31,17 +31,23 @@ export const allNamedCharacters = {
 
 export const allCities = {
   winterfell: {
+    id: "winterfell",
     name: "Winterfell",
     isConquered: true,
     isAllied: true,
+    location: {
+      top:"120px",
+      left:"220px"
+    },
     adjacent: [
-      "deepwood_motte",
-      "torrhen's_square",
-      "castle_cerwyn",
-      "hornwood",
-      "queenscrown",
-      "last_hearth",
-      "castle_black"
+      // "deepwood_motte",
+      // "torrhen's_square",
+      // "castle_cerwyn",
+      // "hornwood",
+      // "queenscrown",
+      // "last_hearth",
+      "castleBlack",
+      "test"
     ],
     resources: {
       gold: 100,
@@ -51,5 +57,41 @@ export const allCities = {
       allNamedCharacters.jon_snow,
       allNamedCharacters.arya_stark
     ]
+  },
+  castleBlack: {
+    id:"castleBlack",
+    name: "Castle Black",
+    isConquered: true,
+    isAllied: true,
+    location:{
+      top:"40px",
+      left:"230px"
+    },
+    adjacent: [
+      "winterfell"
+    ],
+    resources: {
+      gold: 100,
+      men: 20
+    },
+    namedCharacters: []
+  },
+  kingsLanding: {
+    id:"kingsLanding",
+    name: "King's Landing",
+    isConquered: false,
+    isAllied: false,
+    location:{
+      top:"300px",
+      left:"260px"
+    },
+    adjacent: [
+      "winterfell"
+    ],
+    resources: {
+      gold: 100,
+      men: 20
+    },
+    namedCharacters: []
   }
 };

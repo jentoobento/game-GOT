@@ -121,8 +121,9 @@ class CommandBar extends Component {
     }
   };
 
-  invadeBtn = () => {
-    console.log("fight!!!!!!");
+  invadeBtn = (event) => {
+    console.log("fight!!!!!!", event.target.getAttribute('data-adjacent'));
+
   };
 
   /**
@@ -205,6 +206,7 @@ class CommandBar extends Component {
 
     return (
       <React.Fragment>
+        {currentCity ?
         <div className="container col-md-3 command-area">
           <div className="resource-area">
             <h2>Resources</h2>
@@ -232,11 +234,17 @@ class CommandBar extends Component {
             <FontAwesomeIcon icon="user-plus" />
             Hire Men
           </button>
-          <button onClick={this.invadeBtn} className="btn btn">
+          <button onClick={this.invadeBtn} data-adjacent={currentCity.adjacent} className="btn btn">
             <FontAwesomeIcon icon="bookmark" />
             Attempt to Invade
           </button>
         </div>
+        :
+        <div className="container col-md-3 command-area">
+          <h2>
+            pick a city
+          </h2>
+        </div>}
       </React.Fragment>
     );
   }
