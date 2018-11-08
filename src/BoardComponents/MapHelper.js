@@ -1,3 +1,15 @@
+export const specialItems = {
+  longclaw: {
+    name: "Longclaw",
+    description: "A Valyrian steel sword with a wolf's head pommel.",
+    value: 100,
+    battle: 10
+  }
+}
+
+
+
+
 /////////////////////////////////////////////////////////////
 // make sure to add actual aliases if the character has any
 // object key is lowercase with underscrores for spaces
@@ -5,25 +17,9 @@
 export const allNamedCharacters = {
   jon_snow: {
     name: "Jon Snow",
-    alias: [
-      "Lord Snow", 
-      "Bastard of Winterfell", 
-      "Lord Crow", 
-      "White Wolf"
-    ],
-    specialItems: {
-      longclaw: {
-        name: "Longclaw",
-        owner: this.jon_snow,
-        description: "A Valyrian steel sword with a wolf's head pommel.",
-        value: 100,
-        battle: 10
-      }
-    },
-    house: [
-      "Stark",
-      "the Night's Watch"
-    ],
+    alias: ["Lord Snow", "Bastard of Winterfell", "Lord Crow", "White Wolf"],
+    specialItems: [specialItems.longclaw],
+    house: ["Stark", "the Night's Watch"],
     charm: 10,
     intelligence: 10,
     battle: 10
@@ -59,7 +55,8 @@ export const allNamedCharacters = {
       hand_of_the_king: {
         name: "Hand of the Queen",
         owner: this.tyrion_lannister,
-        description: "A symbol marking the bearer as the chief advisor to the King.",
+        description:
+          "A symbol marking the bearer as the chief advisor to the King.",
         value: 100,
         battle: 10
       }
@@ -89,7 +86,12 @@ export const allNamedCharacters = {
   },
   cersei_lannister: {
     name: "Cersei Lannister",
-    alias: ["Cersei", "Queen Cersei", "Queen of the Seven Kingdoms", "Queen of the Andals and the First Men"],
+    alias: [
+      "Cersei",
+      "Queen Cersei",
+      "Queen of the Seven Kingdoms",
+      "Queen of the Andals and the First Men"
+    ],
     house: ["Lannister"],
     charm: 10,
     intelligence: 10,
@@ -129,41 +131,35 @@ export const allNamedCharacters = {
     charm: 10,
     intelligence: 10,
     battle: 10
-  },
-
+  }
 };
-export const allHouses = {
 
-  stark:[
-    allNamedCharacters.arya_stark,
-    allNamedCharacters.jon_snow
-  ],
+//////////////////////////////////////////////////
+
+//////////////////////////////////////////////////
+
+export const allHouses = {
+  stark: [allNamedCharacters.arya_stark, allNamedCharacters.jon_snow],
   lannister: [
     allNamedCharacters.cersei_lannister,
     allNamedCharacters.jaime_lannister,
     allNamedCharacters.tyrion_lannister,
     allNamedCharacters.joffrey_baratheon,
     allNamedCharacters.myrcella_baratheon,
-    allNamedCharacters.tommen_baratheon,
+    allNamedCharacters.tommen_baratheon
   ],
-  targaryen:[
-    allNamedCharacters.aerys_II,
+  targaryen: [
+    allNamedCharacters.aerys_II
     //allNamedCharacters.daenerys_targaryen,
     //allNamedCharacters.viserys_targeryen
   ],
 
-  baratheon:[
-    allNamedCharacters.robert_baratheon
-  ],
-  greyjoy:[],
+  baratheon: [allNamedCharacters.robert_baratheon],
+  greyjoy: [],
   martell: [],
   tyrell: [],
   arryn: [],
-  tully:[],
-
-
-
-
+  tully: []
 };
 ///////////////////////////////////////////////////////////////
 // if you add named Characters to a city be sure to add the
@@ -197,10 +193,7 @@ export const allCities = {
     name: "King's Landing",
     isConquered: false,
     isAllied: false,
-    adjacent: [
-      "tumbleton", 
-      "rosby"
-    ],
+    adjacent: ["tumbleton", "rosby"],
     resources: {
       gold: 100,
       men: 50
