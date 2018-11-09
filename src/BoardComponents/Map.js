@@ -40,7 +40,7 @@ class Map extends React.Component {
   render() {
     const cities = Object.keys(allCities).map(city => {
       return(
-        <span id={allCities[city].id} key={allCities[city].id}>
+        <span id={city} key={city}>
             <FontAwesomeIcon
               className="map-icon"
               style={allCities[city].location}

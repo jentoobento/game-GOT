@@ -295,8 +295,8 @@ export const allCities = {
       // "hornwood",
       // "queenscrown",
       // "last_hearth",
-      "castleBlack",
-      "test"
+      "castle_black",
+      "kings_landing"
     ],
     resources: {
       gold: 100,
@@ -332,7 +332,10 @@ export const allCities = {
       top:"320px",
       left:"255px"
     },
-    adjacent: ["tumbleton", "rosby"],
+    adjacent: [
+      // "tumbleton", "rosby"
+      "winterfell"
+    ],
     resources: {
       gold: 100,
       men: 50
