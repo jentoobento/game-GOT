@@ -5,11 +5,6 @@ import CreateCharacter from './CreateCharacter';
 import LandingPage from './LandingPage';
 import './App.css';
 
-
-import Test from './Test'
-
-
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faBullhorn, faBookmark, faChild, faFlag, faMale, faStar,  faUsers, faUserPlus, faUniversity, faCoins, faUser, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,8 +18,6 @@ class App extends Component {
           <Route exact path={'/board'} component={Board} />
           <Route exact path={'/create-character'} component={CreateCharacter} />
           <Route exact path={'/'} component={LandingPage} />
-          <Route exact path={'/test'} component={Test} />
-
         </React.Fragment>
       </BrowserRouter>
     );
